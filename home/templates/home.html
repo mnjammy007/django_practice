@@ -1,0 +1,35 @@
+{% extends "base.html"%}
+{% block base_data%}
+    {%if name%}
+    <h1>I love {{name}}</h1>
+    {% else %}
+    <h1>This is home page</h1>
+    {% endif %}
+
+    <a href="./about">About</a>
+    <a href="./contact">Contact</a>
+
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Age</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for friend in my_friends %}
+            <tr>
+                <th scope="row">{{forloop.counter}}</th>
+                <td>{{friend.name}}</td>
+                <td>{{friend.age}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <div class="cotainer">
+        <h1>This is send email section</h1>
+        <!-- <a href="{% url 'send_email' %}" class="btn btn-success">Send Email</a> -->
+        <a href="{% url 'send_attachment_email' %}" class="btn btn-success">Send Email</a>
+    </div>
+{% endblock %}
