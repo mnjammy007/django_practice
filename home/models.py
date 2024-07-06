@@ -16,7 +16,7 @@ class Car(models.Model):
     speed = models.IntegerField(default=50)
 
     def __str__(self) -> str:
-        return self.car_namege
+        return self.car_name
 
 
 @receiver(post_save, sender=Car)
